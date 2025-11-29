@@ -22,10 +22,10 @@ fi
 # Запуск
 echo "✅ Настройки проверены"
 echo "🐳 Запускаем Docker контейнер..."
-docker-compose up -d
+docker compose up -d
 
 echo ""
 echo "✨ Готово!"
 echo "📱 Откройте: http://localhost:6859"
 echo ""
-echo "Для просмотра логов: docker-compose logs -f"
+echo "Для просмотра логов: docker compose logs -f"
