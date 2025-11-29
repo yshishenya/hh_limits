@@ -1,0 +1,41 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Flask session
+flask_session/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Output files
+manager_limits_*.txt
+
+# Environment (will be provided at runtime)
+.env
+
+# Documentation
+README.md
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore

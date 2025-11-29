@@ -1,0 +1,44 @@
+<!-- templates/limits.html -->
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лимиты просмотров резюме</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .manager { margin-bottom: 40px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; }
+        button { padding: 10px 20px; font-size: 14px; cursor: pointer; }
+        .flash { margin-bottom: 20px; padding: 10px; border-radius: 5px; width: 80%; margin-left: auto; margin-right: auto; }
+        .flash.success { background-color: #d4edda; color: #155724; }
+        .flash.warning { background-color: #fff3cd; color: #856404; }
+        .flash.danger { background-color: #f8d7da; color: #721c24; }
+        .flash.info { background-color: #cce5ff; color: #004085; }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h1>Лимиты просмотров резюме менеджера</h1>
+
+    {% for manager in managers %}
+        <div class="manager">
+            <h2>Менеджер: {{ manager.manager_name }} (ID: {{ manager.manager_id }})</h2>
+            {% if manager.limits == 'Нет данных или доступ запрещен.' %}
+                <p>{{ manager.limits }}</p>
+            {% else %}
+                <pre>{{ manager.limits | tojson(indent=4) }}</pre>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+    <a href="{{ url_for('logout') }}"><button>Выйти</button></a>
+</body>
+</html>

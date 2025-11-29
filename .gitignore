@@ -1,0 +1,38 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Flask
+flask_session/
+instance/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+app.log
+
+# Output files
+manager_limits_*.txt
+
+# OS
+.DS_Store
+Thumbs.db

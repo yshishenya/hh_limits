@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  hh-limits:
+    build: .
+    container_name: hh_limits_app
+    ports:
+      - "6859:6859"
+    env_file:
+      - .env
+    restart: unless-stopped
+    # Для production рекомендуется использовать volume для сессий
+    # volumes:
+    #   - ./flask_session:/app/flask_session
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:6859/', timeout=2)"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
